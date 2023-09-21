@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-</head>
+@include ('layouts.nav')
+<title>Home</title>
 <body>
-    <h1>ini home</h1>
+    <br>
+    <br>
+<div class="container-fluid">
+                    <div class="text-center">
+                        <h1>WELCOME TO JAKART LIBRARY</h1>
+                        <h3>Slogan is here</h3>
+                    </div>
+
+                    {{-- Container --}}
+                    @yield('container')
+                    
+                </div>
 </body>
-</html>

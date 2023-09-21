@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>category</title>
-</head>
+@include ('layouts.nav')
+
+<title>Category</title>
 <body>
-    <h1>ini category</h1>
+    <br>
+    <br>
+<div class="container-fluid">
+                    <div class="text-center">
+                        <h1 class="display-5 fw-bold">CATEGORY</h1>
+                    </div>
+                    {{-- Container --}}
+                    @yield('container')  
+                </div>
 </body>
-</html>

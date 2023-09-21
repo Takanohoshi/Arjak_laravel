@@ -28,6 +28,9 @@ class LoginController extends Controller
                 if (Auth::user()->level=='petugas')
                 return redirect('petugasdash');
         }
+        else{
+            return redirect('/login')->with('loginError', 'Login failed!');
+        }
 
     }
     
