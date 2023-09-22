@@ -23,13 +23,13 @@ class LoginController extends Controller
             $request -> session() -> regenerate();
             // return redirect()-> intended('/');
             if (Auth::user()->level=='admin'){
-                return redirect('admindash');
+                return redirect('admindash')->with('loginberhasil', 'Login berhasil!!');
                 }
                 if (Auth::user()->level=='petugas')
                 return redirect('petugasdash');
         }
         else{
-            return redirect('/login')->with('loginError', 'Login failed!');
+            return redirect('/login')->with('loginError', 'Login gagal!, silahkan cek email atau password anda ');
         }
 
     }
