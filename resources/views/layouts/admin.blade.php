@@ -37,13 +37,13 @@
                                     <a href="/admindash" class="nav-link {{ Request::is('admindash') ? 'active' : '' }}">Dashboard</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/officer/index" class="nav-link {{ Request::is('admin/officer/*') ? 'active' : '' }}">Officer</a>
+                                    <a href="/dashboard/users" class="nav-link {{ Request::is('dashboard/users*') ? 'active' : '' }}">Officer</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/admin/category/index" class="nav-link {{ Request::is('admin/category/*') ? 'active' : '' }}">Category</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/data/index" class="nav-link {{ Request::is('admin/data/*') ? 'active' : '' }}">Data</a>
+                                    <a href="/dashboard/admin" class="nav-link {{ Request::is('admin/data/*') ? 'active' : '' }}">Data</a>
                                 </li>
 
                                 <li class="nav-item">
@@ -54,7 +54,14 @@
                     </div>
                 </nav>
             </header>
+            <main class="mt-4">
+                <div class="container-fluid">
 
+                    {{-- Container --}}
+                    @yield('container')
+                    
+                </div>
+            </main>
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

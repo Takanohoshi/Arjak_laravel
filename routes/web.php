@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminUserController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,11 +35,20 @@ route::get('login', [LoginController::class, 'index']);
 route::post('post', [LoginController::class, 'poslog'])->name('poslog');
 
 route::get('admindash', function(){
-    return view ('admin.dashboard');
+    return view ('admin.index');
 });
 
 route::get('petugasdash', function(){
-    return view ('petugas.dashboard');
+    return view ('petugas.index');
 });
 
 route::get('logout', [LogoutController::class, 'logout'] );
+
+// Admin Dashboard
+Route::resource('dashboard/users', AdminUserController::class)->except('show')->middleware('admin');
+
+
+
+
+
+

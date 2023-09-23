@@ -17,13 +17,22 @@ class UserSeeder extends Seeder
         $data = [
             [
                 'name' => 'hosi',
+                'username' => 'tamahoshi',
                 'email' => 'hosi@gmail.com',
-                'password' => Hash::make('1234'),
+                'password' => Hash::make('1234'), 
                 'level' => 'admin',
             ],
             [
                 'name' => 'udin',
+                'username' => 'saikoji',
                 'email' => 'udin@gmail.com',
+                'password' => Hash::make('1234'),
+                'level' => 'petugas',
+            ],
+            [
+                'name' => 'saki',
+                'username' => 'sakiouji',
+                'email' => 'saki@gmail.com',
                 'password' => Hash::make('1234'),
                 'level' => 'petugas',
             ]

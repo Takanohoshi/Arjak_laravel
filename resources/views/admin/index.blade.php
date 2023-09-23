@@ -97,6 +97,9 @@
                     <th>Nama: {{ Auth::user()->name }}</th>
                 </tr>
                 <tr>
+                    <th>Username: {{ Auth::user()->username }}</th>
+                </tr>
+                <tr>
                     <th>Email: {{ Auth::user()->email }}</th>
                     
                 </tr>
