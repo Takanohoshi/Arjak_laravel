@@ -95,7 +95,6 @@ class AdminUserController extends Controller
         $rules = [
             'name' => ['required', 'max:255'],
             'password' => ['required', 'min:8', 'max:255'],
-            'email' => ['required', 'email', 'unique:users'],
             'level' => ['required', Rule::in(['admin', 'petugas'])],
         ];
 
