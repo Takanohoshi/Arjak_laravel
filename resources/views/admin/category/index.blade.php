@@ -15,26 +15,22 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nama</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Role</th>
+                <th>nama kategori</th>
+                <th>Deskripsi</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($users as $user)
+            @foreach ($category as $category)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->username }}</td>
-                <td>{{ $user->email }}</td>
-                <td> {{ $user->level }} </td>
+                <td>{{ $category->nm_kategori }}</td>
+                <td>{{ $category->deskripsi }}</td>
                 <td>
-                    <a href="{{ route('users.edit', $user->id) }}" class="badge bg-warning" onclick="return confirm('Apakah Anda Yakin?')">
+                    <a href="{{ route('category.edit', $category->id) }}" class="badge bg-warning" onclick="return confirm('Apakah Anda Yakin?')">
                         <span>Edit</span></a>
 
-                        <form action="{{ route('users.destroy', $user->id) }}" method="post" class="d-inline">
+                        <form action="{{ route('category.destroy', $category->id) }}" method="post" class="d-inline">
                             
                             @method('delete')
                             @csrf
@@ -48,10 +44,9 @@
         </tbody>
     </table>
     <div class="text-end">
-        <a href="{{ route('users.create') }}" class="btn btn-primary mb-3">Buat User Baru</a>
+        <a href="{{ route('category.create') }}" class="btn btn-primary mb-3">Buat User Baru</a>
     </div>
 
-    {{ $users->links() }}
 </div>
 
 @endsection

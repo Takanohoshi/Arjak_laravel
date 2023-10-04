@@ -6,7 +6,7 @@
 <div class="container-fluid">
                     <div class="text-center">
                         <h1>WELCOME TO JAKART LIBRARY</h1>
-                        <h3>Slogan is here</h3>
+                        <h3>"Creativity is a vehicle of development"</h3>
                     </div>
 
                     {{-- Container --}}

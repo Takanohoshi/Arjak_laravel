@@ -40,7 +40,7 @@
                                     <a href="/dashboard/users" class="nav-link {{ Request::is('dashboard/users*') ? 'active' : '' }}">Officer</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/category/index" class="nav-link {{ Request::is('admin/category/*') ? 'active' : '' }}">Category</a>
+                                    <a href="/dashboard/category" class="nav-link {{ Request::is('dashboard/category*') ? 'active' : '' }}">Category</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/dashboard/admin" class="nav-link {{ Request::is('admin/data/*') ? 'active' : '' }}">Data</a>
