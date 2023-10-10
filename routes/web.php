@@ -6,6 +6,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\http\Controllers\Admin\DataartikelContoller;
 
 
 
@@ -49,7 +50,7 @@ route::get('logout', [LogoutController::class, 'logout'] );
 // Admin Dashboard
 Route::resource('dashboard/users', AdminUserController::class)->except('show')->middleware('admin');
 Route::resource('dashboard/category', CategoryController::class)->except('show')->middleware('admin');
-
+Route::resource('dashboard/artikeldata', DataartikelContoller::class)->except('show')->middleware('admin');
 
 
 

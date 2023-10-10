@@ -15,14 +15,25 @@ class AdminUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $title = 'Dashboard | User';
-        $users = User::latest()->paginate(5);
-
-        return view('admin.users.index', compact('users', 'title'))
-                ->with('i', (request()->input('page', 1) - 1) * 5);
+        $users = User::query();
+    
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $users->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%')
+                      ->orWhere('username', 'like', '%' . $search . '%')
+                      ->orWhere('email', 'like', '%' . $search . '%');
+            });
+        }
+    
+        $users = $users->paginate(5); // Adjust the number of items per page as needed
+        
+    
+        return view('admin.users.index', compact('users'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -125,4 +136,5 @@ class AdminUserController extends Controller
 
         return redirect('/dashboard/users')->with('success', 'User has been deleted');
     }
+
 }

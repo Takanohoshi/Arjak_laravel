@@ -11,7 +11,7 @@
 
     <style>
         body {
-            background-color: #C2CAD0;
+            background-color: white;
         }
 
         .active {
@@ -43,11 +43,11 @@
                                     <a href="/dashboard/category" class="nav-link {{ Request::is('dashboard/category*') ? 'active' : '' }}">Category</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/dashboard/admin" class="nav-link {{ Request::is('admin/data/*') ? 'active' : '' }}">Data</a>
+                                    <a href="/dashboard/artikeldata" class="nav-link {{ Request::is('admin/artieldata*') ? 'active' : '' }}">Data</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="/logout" class="nav-link {{ Request::is('logout') ? 'active' : '' }}">Logout</a>
+                                    <a href="/logout" class="nav-link {{ Request::is('logout') ? 'active' : '' }}" onclick="return confirm('Apakah anda yain untu logout?')">Logout</a>
                                 </li>
                             </ul>
                         </div>

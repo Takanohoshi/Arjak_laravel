@@ -2,7 +2,7 @@
 
 @section('container')
 
-<h1 class="h2">Data Officer</h1>
+<h1 class="h2">Data Category</h1>
 
 @if (session()->has('success'))
         <div class="alert alert-success col-lg-12" role="alert">
@@ -10,6 +10,17 @@
         </div>
     @endif
 
+    <div class="mb-3">
+    <form action="{{ route('category.index') }}" method="GET" class="form-inline">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Cari kategori">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+</div>
+    @php
+        $i = 0; // Initialize the $i variable
+    @endphp
 <div class="table-responsive col-lg-12">
     <table class="table table-sm table-bordered table-hover border-dark text-center">
         <thead>
@@ -43,10 +54,10 @@
             @endforeach
         </tbody>
     </table>
-    <div class="text-end">
-        <a href="{{ route('category.create') }}" class="btn btn-primary mb-3">Buat User Baru</a>
-    </div>
 
+    <div class="text-end">
+        <a href="{{ route('category.create') }}" class="btn btn-primary mb-3">Buat Kategori Baru</a>
+    </div>
 </div>
 
 @endsection

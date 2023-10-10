@@ -10,6 +10,17 @@
         </div>
     @endif
 
+    <div class="mb-3">
+    <form action="{{ route('users.index') }}" method="GET" class="form-inline">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Search by name, username, or email">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+</div>
+@php
+    $i = 0;
+    @endphp
 <div class="table-responsive col-lg-12">
     <table class="table table-sm table-bordered table-hover border-dark text-center">
         <thead>

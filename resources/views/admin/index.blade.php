@@ -89,7 +89,7 @@
         <!-- Card Profil -->
         <div class="profile-card">
             <!-- Tampilkan gambar profil -->
-            <img src="{{ asset('path-to-profile-image.jpg') }}" alt="Profile Image" class="profile-image">
+            <img src="{{ asset('images/admin.jpg') }}" alt="Profile Image" class="profile-image">
             
             <!-- Tampilkan data profil dalam tabel -->
             <table class="profile-table">
