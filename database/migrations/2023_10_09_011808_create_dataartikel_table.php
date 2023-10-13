@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('tahun');
             $table->string('kategori');
             $table->longText('deskripsi');
-            $table->string('image')->nullable();
+            $table->string('pdf');
             $table->string('username');
             $table->timestamps();
         });

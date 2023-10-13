@@ -16,6 +16,7 @@ class Dataartikel extends Model
         'tahun',
         'kategori',
         'deskripsi',
-        'image',
+        'username',
+        'pdf',
     ];
 }

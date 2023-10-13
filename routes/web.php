@@ -11,6 +11,7 @@ use App\http\Controllers\Admin\DataartikelContoller;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,7 +52,6 @@ route::get('logout', [LogoutController::class, 'logout'] );
 Route::resource('dashboard/users', AdminUserController::class)->except('show')->middleware('admin');
 Route::resource('dashboard/category', CategoryController::class)->except('show')->middleware('admin');
 Route::resource('dashboard/artikeldata', DataartikelContoller::class)->except('show')->middleware('admin');
-
 
 
 

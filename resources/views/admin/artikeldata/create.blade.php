@@ -66,13 +66,13 @@
         </div>
 
         <div class="mb-3">
-            <label for="images" class="form-label">Gambar Detail</label>
-            <input type="file" class="form-control @error('images') is-invalid @enderror" id="images" name="images[]" accept="image/*" multiple required>
-            @error('images')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
+            <label for="pdf_file" class="form-label">detail</label>
+            <input type="file" class="form-control" name="pdf" id="pdf_file" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required value="{{ Auth::user()->username }}" disabled>
         </div>
 
         <button type="submit" class="btn btn-primary">Simpan</button>

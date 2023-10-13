@@ -10,18 +10,7 @@
 </div>
 @endif
 
-<div class="mb-3">
-    <form action="{{ route('artikeldata.index') }}" method="GET" class="form-inline">
-        <div class="input-group">
-            <input type="text" name="search" class="form-control" placeholder="Cari artikel">
-            <button type="submit" class="btn btn-primary">Cari</button>
-        </div>
-    </form>
-</div>
-
-@php
-    $i = 0;
-@endphp
+<!-- Your search form code goes here -->
 
 <div class="table-responsive col-lg-12">
     <table class="table table-sm table-bordered table-hover border-dark text-center">
@@ -33,12 +22,14 @@
                 <th>Tahun</th>
                 <th>Kategori</th>
                 <th>Deskripsi</th>
-                <th>Image</th>
                 <th>Username</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
+            @php
+                $i = 0;
+            @endphp
             @foreach ($dataartikel as $dataartikel)
             <tr>
                 <td>{{ ++$i }}</td>
@@ -49,16 +40,11 @@
                 <td>{{ $dataartikel->tahun }}</td>
                 <td>{{ $dataartikel->kategori }}</td>
                 <td>{{ $dataartikel->deskripsi }}</td>
-                <td>
-                    <img src="{{ asset('storage/detail/' . $dataartikel->image) }}" alt="Gambar Artikel" class="img-fluid" width="100">
-                </td>
-
                 <td>{{ Auth::user()->username }}</td>
                 <td>
                     <a href="{{ route('artikeldata.edit', $dataartikel->id) }}" class="badge bg-warning" onclick="return confirm('Apakah Anda Yakin?')">
                         <span>Edit</span>
                     </a>
-
                     <form action="{{ route('artikeldata.destroy', $dataartikel->id) }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
@@ -66,15 +52,19 @@
                             <span>Hapus</span>
                         </button>
                     </form>
+                    <!-- Tambahkan tautan ke file PDF -->
+                    <a href="{{ asset('storage/pdf/' . $dataartikel->pdf) }}" class="badge bg-primary" target="_blank">
+                        <span>Lihat PDF</span>
+                    </a>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+</div>
 
-    <div class="text-end">
-        <a href="{{ route('artikeldata.create') }}" class="btn btn-primary mb-3">Buat Artikel Baru</a>
-    </div>
+<div class="text-end">
+    <a href="{{ route('artikeldata.create') }}" class="btn btn-primary mb-3">Buat Artikel Baru</a>
 </div>
 
 @endsection
