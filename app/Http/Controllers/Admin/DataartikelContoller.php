@@ -16,7 +16,6 @@ class DataartikelContoller extends Controller
      */
     public function index(Request $request)
     {
-        $dataartikel = Dataartikel::paginate(10);
         $dataartikel = Dataartikel::query();
     
         if ($request->has('search')) {
@@ -125,79 +124,87 @@ class DataartikelContoller extends Controller
      */
     public function update(Request $request, Dataartikel $dataartikel,string $id)
     {
-        // Aturan validasi
+            // Aturan validasi
         $rules = [
-            'cover' => 'image|mimes:jpeg,png,jpg,gif|max:100000',
             'judul' => 'required|string|max:255',
             'tahun' => 'required|integer',
             'kategori' => 'required|string|max:255',
             'deskripsi' => 'required|string',
+            'cover' => 'image|mimes:jpeg,png,jpg,gif|max:100000', // Validasi file cover
             'pdf' => 'mimes:pdf|max:100000', // Validasi file PDF
         ];
-    
+
         // Validasi data yang diterima dari formulir
         $validatedData = $request->validate($rules);
-    
+
         // Dapatkan username pengguna yang saat ini login
         $username = Auth::user()->username;
-    
-        // Cek apakah pengguna mengunggah file cover baru
-        if ($request->hasFile('cover')) {
-            // Hapus file cover lama jika ada
-            Storage::disk('public')->delete('cover/' . $dataartikel->cover);
-    
-            // Ambil file cover baru dari request
-            $covered = $request->file('cover');
-    
-            // Generate nama file unik berdasarkan tanggal
-            $coverFilename = date('Y-m-d') . $covered->getClientOriginalName();
-    
-            // Tentukan path penyimpanan untuk file cover baru
-            $coverPath = 'cover/' . $coverFilename;
-    
-            // Simpan file cover baru
-            Storage::disk('public')->put($coverPath, file_get_contents($covered));
-    
-            // Update nama file cover dalam data artikel
-            $dataartikel->cover = $coverFilename;
-        }
-    
-        // Cek apakah pengguna mengunggah file PDF baru
-        if ($request->hasFile('pdf')) {
-            // Hapus file PDF lama jika ada
-            Storage::disk('public')->delete('pdf/' . $dataartikel->pdf);
-    
-            // Ambil file PDF baru dari request
-            $pdf = $request->file('pdf');
-    
-            // Generate nama file unik berdasarkan tanggal
-            $pdfFilename = date('Y-m-d') . $pdf->getClientOriginalName();
-    
-            // Tentukan path penyimpanan untuk file PDF baru
-            $pdfPath = 'pdf/' . $pdfFilename;
-    
-            // Simpan file PDF baru
-            Storage::disk('public')->put($pdfPath, file_get_contents($pdf));
-    
-            // Update nama file PDF dalam data artikel
-            $dataartikel->pdf = $pdfFilename;
-        }
-    
-        // Simpan perubahan data artikel setelah mengupdate file cover dan PDF
+
+        // Temukan data artikel berdasarkan ID
         $dataartikel = Dataartikel::find($id);
+
+        if (!$dataartikel) {
+            return redirect()->route('artikeldata.index')->with('error', 'Artikel tidak ditemukan');
+        }
+
+        // Update data artikel dengan data yang divalidasi
         $dataartikel->judul = $validatedData['judul'];
         $dataartikel->tahun = $validatedData['tahun'];
         $dataartikel->kategori = $validatedData['kategori'];
         $dataartikel->deskripsi = $validatedData['deskripsi'];
         $dataartikel->username = $username;
+
+        // Cek apakah pengguna mengunggah file cover baru
+        if ($request->hasFile('cover')) {
+            // Hapus file cover lama jika ada
+            Storage::disk('public')->delete('cover/' . $dataartikel->cover);
+
+            // Ambil file cover baru dari request
+            $cover = $request->file('cover');
+
+            // Generate nama file cover baru yang unik berdasarkan tanggal
+            $coverFilename = date('Y-m-d') . $cover->getClientOriginalName();
+
+            // Tentukan path penyimpanan untuk file cover baru
+            $coverPath = 'cover/' . $coverFilename;
+
+            // Simpan file cover baru
+            Storage::disk('public')->put($coverPath, file_get_contents($cover));
+
+            // Update nama file cover dalam data artikel
+            $dataartikel->cover = $coverFilename;
+        }
+
+        // Cek apakah pengguna mengunggah file PDF baru
+        if ($request->hasFile('pdf')) {
+            // Hapus file PDF lama jika ada
+            Storage::disk('public')->delete('pdf/' . $dataartikel->pdf);
+
+            // Ambil file PDF baru dari request
+            $pdf = $request->file('pdf');
+
+            // Generate nama file PDF baru yang unik berdasarkan tanggal
+            $pdfFilename = date('Y-m-d') . $pdf->getClientOriginalName();
+
+            // Tentukan path penyimpanan untuk file PDF baru
+            $pdfPath = 'pdf/' . $pdfFilename;
+
+            // Simpan file PDF baru
+            Storage::disk('public')->put($pdfPath, file_get_contents($pdf));
+
+            // Update nama file PDF dalam data artikel
+            $dataartikel->pdf = $pdfFilename;
+        }
+
+        // Simpan perubahan data artikel setelah mengupdate file cover dan PDF
         $dataartikel->save();
-    
+
         // Redirect ke halaman daftar artikel dengan pesan sukses
         return redirect()->route('artikeldata.index')->with('success', 'Artikel berhasil diperbarui');
+
     }
     
     
-
     /**
      * Remove the specified resource from storage.
      */

@@ -19,7 +19,7 @@
                 <h1 class="display-5 fw-bold">ABOUT US</h1>
                 <br>
                 <!-- Gambar "Gambar about" -->
-                <img src="{{ asset('images/anime.jpeg') }}" alt="Gambar about" class="img-responsive" width="1500" height="400">
+                <img src="{{ asset('images/about.jpg') }}" alt="Gambar about" class="img-responsive" width="1500" height="400">
                 <br>
                 <!-- Deskripsi Teks -->
                 <h5 class="justify-text">
@@ -34,7 +34,7 @@
             <!-- Tambahkan div container untuk layout -->
             <div class="container-fluid">
                 <div class="row">
-                    <!-- Bagian Kiri -->
+                    <!-- Bagian kanan -->
                     <div class="col-md-6">
                         <h1 class="display-5 fw-bold">More</h1>
                         <br>
@@ -46,10 +46,17 @@
                     </div>
                     <!-- Bagian Kanan -->
                     <div class="col-md-6">
-                        <img src="{{ asset('images/anime.jpeg') }}" alt="Gambar about" class="img-responsive" width="907" height="800">
-                        <br>
-                        <img src="{{ asset('images/anime.jpeg') }}" alt="Gambar about" class="img-responsive" width="907" height="800">
+                        <img src="{{ asset('images/project.png') }}" alt="Gambar about" class="img-responsive" width="907" height="800">
                 </div>
+            </div>
+
+            <div class="text-center">
+                <h3 class="display-5 fw-bold">Our Vision</h3>
+                <br>
+                <!-- Deskripsi Teks -->
+                <h5 class="text-center">
+                    The Arts can touch the heart of man, giving him the inspiration of life. The Arts give form to our expressions, create what we see, stimulate what we think, create our environment, design what we use, as well as stimulate creativity and change. As individuals we all have something to contribute to the Arts. When we draw this inspiration through our national heritage and create as an expression of our own culture, insignificance is better appreciated.
+                </h5>
             </div>
 
             {{-- Container untuk Konten Dinamis --}}

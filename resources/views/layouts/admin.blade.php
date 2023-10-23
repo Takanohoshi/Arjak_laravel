@@ -25,7 +25,7 @@
             <header>
                 <nav class="navbar navbar-expand-lg navbar-light mt-4">
                     <div class="container-fluid">
-                        <h1 class="display-5 fw-bold">Arjak</h1>
+                        <h1 class="display-5 fw-bold">JakArt</h1>
 
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -43,10 +43,10 @@
                                     <a href="/dashboard/category" class="nav-link {{ Request::is('dashboard/category*') ? 'active' : '' }}">Category</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/dashboard/artikeldata" class="nav-link {{ Request::is('admin/artikeldata*') ? 'active' : '' }}">Data</a>
+                                    <a href="/dashboard/artikeldata" class="nav-link {{ Request::is('dashboard/artikeldata*') ? 'active' : '' }}">Data</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/logout" class="nav-link {{ Request::is('logout') ? 'active' : '' }}" onclick="return confirm('Apakah anda yain untuk logout?')">Logout</a>
+                                    <a href="/logout" class="nav-link {{ Request::is('logout') ? 'active' : '' }}" onclick="return confirm('Apakah anda yakin untuk logout?')">Logout</a>
                                 </li>
                             </ul>
                         </div>

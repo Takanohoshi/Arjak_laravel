@@ -1,13 +1,13 @@
-@extends('layouts.admin')
+@extends('layouts.petugas')
 
 @section('container')
 
 <h1 class="h2">Tambah Data Artikel Baru</h1>
 
 <div class="col-lg-8">
-    <a href="{{ route('artikeldata.index') }}" class="btn btn-secondary mb-3">Kembali</a>
+    <a href="{{ route('datapetugas.index') }}" class="btn btn-secondary mb-3">Kembali</a>
 
-    <form action="{{ route('artikeldata.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('datapetugas.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">

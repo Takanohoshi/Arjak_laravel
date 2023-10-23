@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.petugas')
 
 @section('container')
 
@@ -11,7 +11,7 @@
 @endif
 
 <!-- Your search form code goes here -->
-<form action="{{ route('artikeldata.index') }}" method="GET" class="form-inline">
+<form action="{{ route('datapetugas.index') }}" method="GET" class="form-inline">
     <div class="input-group">
         <input type="text" name="search" class="form-control" placeholder="Cari Artikel">
         <button type="submit" class="btn btn-primary">Search</button>
@@ -49,10 +49,10 @@
                 <td>{{ $dataartikel->deskripsi }}</td>
                 <td>{{ $dataartikel->username }}</td>
                 <td>
-                    <a href="{{ route('artikeldata.edit', $dataartikel->id) }}" class="badge bg-warning" onclick="return confirm('Apakah Anda Yakin?')">
+                    <a href="{{ route('datapetugas.edit', $dataartikel->id) }}" class="badge bg-warning" onclick="return confirm('Apakah Anda Yakin?')">
                         <span>Edit</span>
                     </a>
-                    <form action="{{ route('artikeldata.destroy', $dataartikel->id) }}" method="post" class="d-inline">
+                    <form action="{{ route('datapetugas.destroy', $dataartikel->id) }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                         <button type="submit" class="badge bg-danger border-0" onclick="return confirm('Menghapus Data Ini Akan Mempengaruhi Data Lain, Anda Yakin?')">
@@ -71,8 +71,7 @@
 </div>
 
 <div class="text-end">
-    <a href="{{ route('artikeldata.create') }}" class="btn btn-primary mb-3">Buat Artikel Baru</a>
+    <a href="{{ route('datapetugas.create') }}" class="btn btn-primary mb-3">Buat Artikel Baru</a>
 </div>
-
 
 @endsection

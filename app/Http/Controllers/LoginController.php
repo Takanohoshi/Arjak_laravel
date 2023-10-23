@@ -26,7 +26,7 @@ class LoginController extends Controller
                 return redirect('admindash')->with('loginberhasil', 'Login berhasil!!');
                 }
                 if (Auth::user()->level=='petugas')
-                return redirect('petugasdash');
+                return redirect('petugasdash')->with('loginberhasil', 'Login berhasil!!');
         }
         else{
             return redirect('/login')->with('loginError', 'Login gagal!, silahkan cek email atau password anda ');

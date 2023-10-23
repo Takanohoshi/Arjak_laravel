@@ -1,6 +1,7 @@
 @extends('layouts.login')
 
 @section('container')
+
 <div class="container col-xl-10 col-xxl-8">
     <div class="row align-items-center py-5">
     <h2 class="text-center mb-4">Login</h2>
@@ -33,4 +34,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Fungsi untuk kembali ke halaman sebelumnya
+    function goBack() {
+        window.history.back();
+    }
+</script>
 @endsection

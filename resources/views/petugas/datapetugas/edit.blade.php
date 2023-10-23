@@ -1,13 +1,13 @@
-@extends('layouts.admin')
+@extends('layouts.petugas')
 
 @section('container')
 
 <h1 class="h2">Edit data</h1>
 
 <div class="col-lg-8">
-    <a href="{{ route('artikeldata.index') }}" class="btn btn-secondary mb-3">Back</a>
+    <a href="{{ route('datapetugas.index') }}" class="btn btn-secondary mb-3">Back</a>
 
-   <form method="POST" action="{{ route('artikeldata.update', $dataartikel) }}" enctype="multipart/form-data">
+   <form method="POST" action="{{ route('datapetugas.update', $dataartikel) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 

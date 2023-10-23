@@ -1,4 +1,4 @@
-@include('layouts.admin')
+@include('layouts.petugas')
 <title>Dashboard</title>
 <style>
     /* CSS untuk mengatur tampilan konten */
@@ -89,7 +89,7 @@
         <!-- Card Profil -->
         <div class="profile-card">
             <!-- Tampilkan gambar profil -->
-            <img src="{{ asset('images/admin.jpg') }}" alt="Profile Image" class="profile-image">
+            <img src="{{ asset('images/petugas.png') }}" alt="Profile Image" class="profile-image">
             
             <!-- Tampilkan data profil dalam tabel -->
             <table class="profile-table">

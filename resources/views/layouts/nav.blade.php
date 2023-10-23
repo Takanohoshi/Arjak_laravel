@@ -25,7 +25,7 @@
             <header>
                 <nav class="navbar navbar-expand-lg navbar-light mt-4">
                     <div class="container-fluid">
-                        <h1 class="display-5 fw-bold">Arjak</h1>
+                        <h1 class="display-5 fw-bold">JakArt</h1>
 
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -38,9 +38,6 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="/about" class="nav-link {{ Request::is('about') ? 'active' : '' }}">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/category" class="nav-link {{ Request::is('category') ? 'active' : '' }}">Category</a>
                                 </li>
                                 
                                 <li class="nav-item">

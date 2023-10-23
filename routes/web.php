@@ -3,14 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\http\Controllers\Admin\DataartikelContoller;
-
-
-
-
+use App\http\Controllers\dataa;
+use App\Http\Controllers\petugas\dataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +20,8 @@ use App\http\Controllers\Admin\DataartikelContoller;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
+Route::get('/', [dataa::class, 'index'])->name('home');
 
 Route::get('about', function () {
     return view('about');
@@ -48,12 +44,14 @@ route::get('petugasdash', function(){
 
 route::get('logout', [LogoutController::class, 'logout'] );
 
+
 // Admin Dashboard
 Route::resource('dashboard/users', AdminUserController::class)->except('show')->middleware('admin');
 Route::resource('dashboard/category', CategoryController::class)->except('show')->middleware('admin');
 Route::resource('dashboard/artikeldata', DataartikelContoller::class)->except('show')->middleware('admin');
 
-
+// Petugas Dashboard
+Route::resource('dashboard/datapetugas', dataController::class)->except('show')->middleware('petugas');
 
 
 
