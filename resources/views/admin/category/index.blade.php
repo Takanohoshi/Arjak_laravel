@@ -2,7 +2,7 @@
 
 @section('container')
 
-<h1 class="h2">Data Category</h1>
+<h1 class="h2">Data Kategori</h1>
 
 @if (session()->has('success'))
         <div class="alert alert-success col-lg-12" role="alert">

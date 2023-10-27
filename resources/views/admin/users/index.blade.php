@@ -2,7 +2,7 @@
 
 @section('container')
 
-<h1 class="h2">Data Officer</h1>
+<h1 class="h2">Data Karyawan</h1>
 
 @if (session()->has('success'))
         <div class="alert alert-success col-lg-12" role="alert">
@@ -13,7 +13,7 @@
     <div class="mb-3">
     <form action="{{ route('users.index') }}" method="GET" class="form-inline">
         <div class="input-group">
-            <input type="text" name="search" class="form-control" placeholder="Search by name, username, or email">
+            <input type="text" name="search" class="form-control" placeholder="Cari dengan name, username, atau email">
             <button type="submit" class="btn btn-primary">Search</button>
         </div>
     </form>

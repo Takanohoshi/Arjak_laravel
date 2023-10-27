@@ -2,7 +2,7 @@
 
 @section('container')
     
-<h1 class="h2">Create User</h1>
+<h1 class="h2">Create Karyawan</h1>
 
 <div class="col-lg-8">
     <a href="{{ route('users.index') }}" class="btn btn-secondary mb-3">Back</a>

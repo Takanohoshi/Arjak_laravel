@@ -30,6 +30,7 @@
                                 <img src="{{ asset('storage/cover/' . $item->cover) }}" class="card-img-top" alt="Image">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $item->judul }}</h5>
+                                    <p class="card-text">Kategori : {{ $item->kategori }}</p>
                                     <p class="card-text">{{ $item->deskripsi }}</p>
                                     <p class="card-text" style="display: none;">Tahun: {{ $item->tahun }}</p>
                                     <p class="card-text" style="display: none;">Kategori: {{ $item->kategori }}</p>
@@ -40,7 +41,13 @@
                         </div>
                     @endforeach
                 </div>
-                
+                <footer class="footer mt-auto py-3">
+                    <div class="container">
+                        <div class="text-center">
+                            &copy; 2023 JakArt
+                        </div>
+                    </div>
+                  </footer>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                     $(document).ready(function() {

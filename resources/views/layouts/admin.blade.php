@@ -37,7 +37,7 @@
                                     <a href="/admindash" class="nav-link {{ Request::is('admindash') ? 'active' : '' }}">Dashboard</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/dashboard/users" class="nav-link {{ Request::is('dashboard/users*') ? 'active' : '' }}">Officer</a>
+                                    <a href="/dashboard/users" class="nav-link {{ Request::is('dashboard/users*') ? 'active' : '' }}">Karyawan</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/dashboard/category" class="nav-link {{ Request::is('dashboard/category*') ? 'active' : '' }}">Category</a>

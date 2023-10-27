@@ -16,6 +16,7 @@ class dataa extends Controller
         if ($search) {
             // Jika ada pencarian, cari artikel berdasarkan judul atau deskripsi yang cocok
             $data = Dataartikel::where('judul', 'like', '%' . $search . '%')
+            ->orwhere('kategori', 'like', '%' . $search . '%')
                 ->get();
         } else {
             // Jika tidak ada pencarian, tampilkan semua data

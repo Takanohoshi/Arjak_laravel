@@ -62,4 +62,17 @@
             {{-- Container untuk Konten Dinamis --}}
             @yield('container')
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <footer class="footer mt-auto py-3">
+            <div class="container">
+                <div class="text-center">
+                    &copy; 2023 JakArt
+                </div>
+            </div>
+          </footer>
 </body>
