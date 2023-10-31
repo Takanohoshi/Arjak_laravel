@@ -31,20 +31,26 @@ Route::get('category', function () {
     return view('category');
 });
 
-route::get('login', [LoginController::class, 'index']);
+route::get('/login', [LoginController::class, 'index']);
 route::post('post', [LoginController::class, 'poslog'])->name('poslog');
 
-route::get('admindash', function(){
-    return view ('admin.index');
-});
 
-route::get('petugasdash', function(){
-    return view ('petugas.index');
-});
 
 route::get('logout', [LogoutController::class, 'logout'] );
 
+// // seesion logout
+// Route::middleware(['auth:admin,petugas'])->group(function(){
+// });
 
+Route::middleware(['auth'])->group(function(){
+    
+    route::get('admindash', function(){
+        return view ('admin.index');
+    });
+    
+    route::get('petugasdash', function(){
+        return view ('petugas.index');
+    });
 // Admin Dashboard
 Route::resource('dashboard/users', AdminUserController::class)->except('show')->middleware('admin');
 Route::resource('dashboard/category', CategoryController::class)->except('show')->middleware('admin');
@@ -52,6 +58,8 @@ Route::resource('dashboard/artikeldata', DataartikelContoller::class)->except('s
 
 // Petugas Dashboard
 Route::resource('dashboard/datapetugas', dataController::class)->except('show')->middleware('petugas');
+});
+
 
 
 
