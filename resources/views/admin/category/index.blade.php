@@ -21,6 +21,10 @@
     @php
         $i = 0; // Initialize the $i variable
     @endphp
+        <div class="text-end">
+            <a href="{{ route('category.create') }}" class="btn btn-primary mb-3">Buat Kategori Baru</a>
+        </div>
+    </div>
 <div class="table-responsive col-lg-12">
     <table class="table table-sm table-bordered table-hover border-dark text-center">
         <thead>
@@ -55,9 +59,6 @@
         </tbody>
     </table>
 
-    <div class="text-end">
-        <a href="{{ route('category.create') }}" class="btn btn-primary mb-3">Buat Kategori Baru</a>
-    </div>
-</div>
+
 
 @endsection

@@ -19,6 +19,10 @@
 </form>
 
 <br>
+<div class="text-end">
+    <a href="{{ route('artikeldata.create') }}" class="btn btn-primary mb-3">Buat Artikel Baru</a>
+</div>
+
 <div class="table-responsive col-lg-12">
     <table class="table table-sm table-bordered table-hover border-dark text-center">
         <thead>
@@ -70,9 +74,7 @@
     </table>
 </div>
 
-<div class="text-end">
-    <a href="{{ route('artikeldata.create') }}" class="btn btn-primary mb-3">Buat Artikel Baru</a>
-</div>
+
 
 
 @endsection
